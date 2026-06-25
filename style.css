@@ -1,5 +1,385 @@
+*{
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #3a413e;
+}
+
+:root{
+    --verde: #1E4620;
+    --azul: #2B5E7A;
+    --amarillo: #E5A93C;
+    --gris: #2C3531;
+}
+
 header{
-    font-family: 'Courier New', Courier, monospace;
-    color: olive;
+    z-index: 99999;
+    background: linear-gradient( -130deg, #081a12, #30423a, #081a12);
+    color: var(--amarillo);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    filter: opacity(0.95);
+    box-shadow: 0px 1px 20px rgb(0,0,0,0.6);
+}
+
+header span{
+    color: var(--azul);
+}
+
+header ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+header a{
+    color: var(--amarillo);
+    text-decoration: none;
+}
+
+header li{
+    background-color: #3a413e;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgb(0,0,0,0.2);
+    transition: all .3s ease;
+}
+
+header li:hover{
+    transform: translateY(-2.5px);
+    filter: brightness(0.7);
+}
+
+main{
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.principal section{
+    background-color: #ede4e0;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(0,0,0,0.5);
+}
+.principal section div{
+    position: relative;
+}
+
+section div a{
+    background-color: var(--verde);
+    color: #ede4e0;
+    width: fit-content;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    position: absolute;
+    top: -40px;
+    left: -30px;
+    line-height: 10px;
+    cursor: pointer;
+    transition: .3s all ease;
+}
+
+section div a:hover{
+    transform: scale(1.05);
+}
+
+section div h2{
+    color: var(--gris);
+    margin: 10px 0 20px 0;
+}
+
+section p{
+    line-height: 30px;
+    color: #5c605f;
+    text-align: justify;
+}
+
+section p span{
+    color: #3a413e;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+aside img{
+    width: 100%;
+}
+
+aside article{
+    background-color: #ede4e0;
+    width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px rgb(0,0,0,0.5);
+}
+
+aside article div:last-child{
+    padding: 20px;
+}
+
+aside article h3{
+    text-align: justify;
+    margin-bottom: 15px;
+    color: var(--gris);
+}
+
+aside article p{
+    color: #5c605f;
+    text-align: justify;
+}
+
+aside h2{
+    background: linear-gradient( 130deg, var(--gris), #46554e);
+    color: #ede4e0;
+    background-color: var(--gris);
     text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    width: 400px;
+}
+
+aside div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+aside div ol{
+    background-color: #ede4e0;
+    width: 340px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgb(0,0,0,0.5);
+}
+
+aside div ol li h3{
+    color: var(--gris);
+    margin-bottom: 12px;
+}
+
+.topheader{
+    margin-top: 12px;
+}
+
+aside div ul li{
+    line-height: 25px;
+    color: #5c605f;
+    list-style-type: square;
+}
+
+.leermas{
+    color: #1E4620;
+    font-weight: bolder;
+}
+
+.leermas:hover{
+    filter: brightness(1.8);
+}
+
+
+#noticias:target ~ .div-noticias{
+    animation: ease 3s noticias;
+}
+
+#noticias:target ~ .div-noticias, #organizaciones:target, #causales:target{
+    transition: all 3s ease;
+    border-radius: 20px;
+}
+
+@keyframes noticias{
+    0% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 15px 0px 0px var(--amarillo), -15px 0px 0px var(--amarillo);
+    }
+    100%{
+        box-shadow: none;
+    }
+}
+
+#organizaciones:target{
+    animation: ease 3s organizaciones;
+}
+
+@keyframes organizaciones{
+    0% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 15px 0px 0px var(--amarillo), -15px 0px 0px var(--amarillo);
+    }
+    100%{
+        box-shadow: none;
+    }
+}
+
+#causales:target{
+    animation: ease 3s causales;
+}
+
+@keyframes causales{
+    0% {
+        box-shadow: none;
+    }
+    50% {
+        box-shadow: 15px 0px 0px var(--amarillo), -15px 0px 0px var(--amarillo);
+    }
+    100%{
+        box-shadow: none;
+    }
+}
+
+.div-orgs{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.orgs{
+    padding: 10px;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    transition: all .3s ease-in;
+}
+
+.orgs:hover{
+    transform: translateX(10px);
+    box-shadow: 1px 1px 20px rgb(0,0,0,0.2);
+}
+
+.desc h2{
+    color: var(--gris);
+}
+
+.tercero{
+    box-shadow: -30px 0px var(--amarillo), 1px 1px 5px rgb(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.primero{
+    box-shadow: -30px 0px var(--verde), 1px 1px 5px rgb(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.segundo{
+    box-shadow: -30px 0px var(--azul), 1px 1px 5px rgb(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.segundo:before{
+    content: "Civiles";
+    transform: rotate(-90deg);
+    position: absolute;
+    color: #ede4e0;
+    left: -10%;
+    top: 45%;
+}
+.primero:before{
+    content: "Gubernamentales";
+    transform: rotate(-90deg);
+    color: #ede4e0;
+    position: absolute;
+    left: -21%;
+    top: 45%;
+}
+
+.tercero:before{
+    content: "Emprendimientos";
+    transform: rotate(-90deg);
+    color: #ede4e0;
+    position: absolute;
+    left: -21%;
+    top: 45%;
+}
+
+.ter{
+    box-shadow: -10px 0 0 var(--amarillo), 1px 1px 5px rgb(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.segun{
+    box-shadow: -10px 0 0 var(--azul), 1px 1px 5px rgb(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.primer{
+    box-shadow: -10px 0 0 var(--verde), 1px 1px 5px rgb(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+.header-orgs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: var(--gris);
+}
+
+footer{
+    color: #ede4e0;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--gris);
+    line-height: 25px;
+}
+
+section div ol li{
+    color: var(--gris);
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+#logo_liceo{
+    width: 200px;
+    box-shadow: 1px 1px 40px rgb(8, 26, 18, 0.4);
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.logo{
+    height: 400px;
+}
+.logo p{
+    font-size: 18px;
+    color: var(--amarillo);
+    background-color: var(--gris);
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+.logo span{
+    color: #9d6c11;
 }
